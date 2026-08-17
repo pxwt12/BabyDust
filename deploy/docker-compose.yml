@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: babydust
+      POSTGRES_USER: babydust
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-babydust}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ../services/api/src/main/resources/schema.sql:/docker-entrypoint-initdb.d/001-schema.sql:ro
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  api:
+    build:
+      context: ../services/api
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/babydust
+      SPRING_DATASOURCE_USERNAME: babydust
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-babydust}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - "8080:8080"
+
+  nginx:
+    image: nginx:1.27-alpine
+    depends_on:
+      - api
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+
+volumes:
+  postgres-data:

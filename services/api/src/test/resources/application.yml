@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:babydust;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+
+babydust:
+  demo-data:
+    enabled: false
+  ai:
+    rate-limit:
+      enabled: true
+      window-seconds: 60
+      qa-per-window: 100
+      draft-per-window: 100
+      preprocess-per-window: 100
+  security:
+    dev-token: test-token
+    dev-user-header-enabled: true

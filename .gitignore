@@ -1,0 +1,12 @@
+.idea/
+.vscode/
+.DS_Store
+node_modules/
+.m2/
+dist/
+unpackage/
+target/
+.env
+.env.*
+!.env.example
+*.log

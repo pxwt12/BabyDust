@@ -1,0 +1,14 @@
+{
+  "name": "接好孕",
+  "appid": "__UNI__BABYDUST",
+  "description": "A multi-channel pregnancy, birth, postpartum and baby-care record app.",
+  "versionName": "0.1.0",
+  "versionCode": "1",
+  "mp-weixin": {
+    "appid": "",
+    "setting": {
+      "urlCheck": true
+    },
+    "usingComponents": true
+  }
+}
