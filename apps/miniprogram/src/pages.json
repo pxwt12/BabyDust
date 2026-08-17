@@ -1,0 +1,69 @@
+{
+  "pages": [
+    {
+      "path": "pages/home/index",
+      "style": {
+        "navigationBarTitleText": "接好孕"
+      }
+    },
+    {
+      "path": "pages/records/index",
+      "style": {
+        "navigationBarTitleText": "记录"
+      }
+    },
+    {
+      "path": "pages/record-detail/index",
+      "style": {
+        "navigationBarTitleText": "记录详情"
+      }
+    },
+    {
+      "path": "pages/analytics/index",
+      "style": {
+        "navigationBarTitleText": "报表"
+      }
+    },
+    {
+      "path": "pages/stage-records/index",
+      "style": {
+        "navigationBarTitleText": "阶段记录"
+      }
+    },
+    {
+      "path": "pages/timeline/index",
+      "style": {
+        "navigationBarTitleText": "全部时间线"
+      }
+    },
+    {
+      "path": "pages/reminders/index",
+      "style": {
+        "navigationBarTitleText": "提醒"
+      }
+    },
+    {
+      "path": "pages/ai-draft/index",
+      "style": {
+        "navigationBarTitleText": "AI 整理"
+      }
+    },
+    {
+      "path": "pages/report-detail/index",
+      "style": {
+        "navigationBarTitleText": "报告详情"
+      }
+    },
+    {
+      "path": "pages/mine/index",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#f7f3ef"
+  }
+}

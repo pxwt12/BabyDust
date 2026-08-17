@@ -1,0 +1,41 @@
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: babydust-api
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/babydust}
+    username: ${SPRING_DATASOURCE_USERNAME:babydust}
+    password: ${SPRING_DATASOURCE_PASSWORD:babydust}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+
+babydust:
+  demo-data:
+    enabled: ${BABYDUST_DEMO_DATA_ENABLED:true}
+  ai:
+    default-provider: deepseek
+    deepseek:
+      enabled: ${DEEPSEEK_ENABLED:false}
+      base-url: ${DEEPSEEK_BASE_URL:https://api.deepseek.com}
+      model: ${DEEPSEEK_MODEL:deepseek-chat}
+      api-key: ${DEEPSEEK_API_KEY:}
+      timeout-ms: ${DEEPSEEK_TIMEOUT_MS:8000}
+    rate-limit:
+      enabled: ${AI_RATE_LIMIT_ENABLED:true}
+      window-seconds: ${AI_RATE_LIMIT_WINDOW_SECONDS:60}
+      qa-per-window: ${AI_QA_RATE_LIMIT:30}
+      draft-per-window: ${AI_DRAFT_RATE_LIMIT:20}
+      preprocess-per-window: ${AI_PREPROCESS_RATE_LIMIT:10}
+  security:
+    dev-token: ${BABYDUST_DEV_TOKEN:dev-token}
+    dev-user-header-enabled: ${BABYDUST_DEV_USER_HEADER_ENABLED:false}
